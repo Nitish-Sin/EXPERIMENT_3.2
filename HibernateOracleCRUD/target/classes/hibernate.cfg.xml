@@ -1,0 +1,28 @@
+<!-- Procedure 1: Create Hibernate configuration file -->
+<!-- This file MUST be placed in 'src/main/resources' -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 1. Database connection settings for Oracle XE -->
+        
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+        
+        <!-- !! REPLACE with your Oracle username and password !! -->
+        <!-- Common user for XE is 'system' or a user you created -->
+        <property name="hibernate.connection.username">Nitish_GG</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <!-- 2. Other Hibernate properties -->
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- 3. Specify the annotated entity class -->
+        <mapping class="com.example.hibernate.Student"/>
+
+    </session-factory>
+</hibernate-configuration>
